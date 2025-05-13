@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <h1>IRIS CLASSIFICATION</h1> <!-- Header for IRIS classification -->
+        <form action='/predict' method="POST">
+            Sepal Length: <input type='text' name='sepal_length'><br>
+            Sepal Width: <input type='text' name='sepal_width'><br>
+            Petal Length: <input type='text' name='petal_length'><br>
+            Petal Width: <input type='text' name='petal_width'><br>
+
+            <!-- Conditional display for the result -->
+            <p>Class: {{result}}</p>
+            <p>
+                {% if result == 0 %}
+                    Species: Iris-setosa
+                {% elif result == 1 %}
+                    Species: Iris-versicolor
+                {% elif result == 2 %}
+                    Species: Iris-virginica
+                {% else %}
+                    Species: Unknown
+                {% endif %}
+            </p>
+
+            <input type='submit' value='Predict'>
+        </form>
+    </body>
+</html>
